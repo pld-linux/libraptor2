@@ -82,6 +82,7 @@ Summary:	Raptor RDF parser test program
 Summary(pl.UTF-8):	Testowy program parsera Raptor RDF
 Group:		Applications
 Requires:	%{name} = %{version}-%{release}
+Obsoletes:	libraptor-rapper < 2.0.0
 Obsoletes:	redland-rapper
 
 %description rapper
