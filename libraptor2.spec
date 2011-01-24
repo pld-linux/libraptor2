@@ -37,8 +37,8 @@ dla RDF. Raptor został zaprojektowany, by pracować wydajnie, jeśli
 jest używany z Redland, ale jest całkowicie oddzielny.
 
 %package devel
-Summary:	libraptor library header files
-Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libraptor
+Summary:	libraptor2 library header files
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libraptor2
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	curl-devel
@@ -47,22 +47,35 @@ Requires:	libxml2-devel >= 2.6.8
 Requires:	libxslt-devel >= 1.0.18
 
 %description devel
-libraptor library header files.
+libraptor2 library header files.
 
 %description devel -l pl.UTF-8
-Pliki nagłówkowe biblioteki libraptor.
+Pliki nagłówkowe biblioteki libraptor2.
 
 %package static
-Summary:	Static libraptor library
-Summary(pl.UTF-8):	Statyczna biblioteka libraptor
+Summary:	Static libraptor2 library
+Summary(pl.UTF-8):	Statyczna biblioteka libraptor2
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
-Static libraptor library.
+Static libraptor2 library.
 
 %description static -l pl.UTF-8
-Statyczna biblioteka libraptor.
+Statyczna biblioteka libraptor2.
+
+%package apidocs
+Summary:	libraptor2 API documentation
+Summary(pl.UTF-8):	Dokumentacja API biblioteki libraptor2
+Group:		Documentation
+Requires:	gtk-doc-common
+Obsoletes:	libraptor-apidocs < 2.0.0
+
+%description apidocs
+libraptor2 API documentation.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API biblioteki libraptor2.
 
 %package rapper
 Summary:	Raptor RDF parser test program
@@ -118,11 +131,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/raptor2
 %{_pkgconfigdir}/raptor2.pc
 %{_mandir}/man3/libraptor2.3*
-%{_gtkdocdir}/raptor
 
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libraptor2.a
+
+%files apidocs
+%defattr(644,root,root,755)
+%{_gtkdocdir}/raptor
 
 %files rapper
 %defattr(644,root,root,755)
