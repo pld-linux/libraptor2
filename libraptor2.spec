@@ -12,8 +12,8 @@ Source0:	http://download.librdf.org/source/%{rname}-%{version}.tar.gz
 URL:		http://librdf.org/raptor/
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake >= 1:1.11
-# WWW library can be one of: curl(default),xml,libfetch,libwww,none
-BuildRequires:	curl-devel
+# WWW library can be one of: curl(default),xml,libfetch,none
+BuildRequires:	curl-devel >= 7.12.0
 BuildRequires:	gtk-doc-automake >= 1.3
 BuildRequires:	libtool
 BuildRequires:	yajl-devel
@@ -22,6 +22,7 @@ BuildRequires:	libxml2-devel >= 2.6.8
 BuildRequires:	libxslt-devel >= 1.0.18
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.98
+Requires:	curl-libs >= 7.12.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -41,7 +42,7 @@ Summary:	libraptor2 library header files
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libraptor2
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	curl-devel
+Requires:	curl-devel >= 7.12.0
 Requires:	libxml2-devel >= 2.6.8
 Requires:	libxslt-devel >= 1.0.18
 Requires:	yajl-devel
