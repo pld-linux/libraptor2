@@ -3,12 +3,12 @@ Summary(pl.UTF-8):	Raptor - zestaw narzędzi do analizy RDF
 Name:		libraptor2
 # the real name is raptor2, but it follows libraptor (named as such because raptor was already occupied)
 %define	rname	raptor2
-Version:	2.0.4
+Version:	2.0.5
 Release:	1
 License:	LGPL v2.1+ or GPL v2+ or Apache v2.0+
 Group:		Libraries
 Source0:	http://download.librdf.org/source/%{rname}-%{version}.tar.gz
-# Source0-md5:	0373efb8d85dc872bc7bb5b1c69299fb
+# Source0-md5:	ffa2aa82c83dbd5b1f77835348ed2c2a
 URL:		http://librdf.org/raptor/
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake >= 1:1.11
@@ -16,13 +16,15 @@ BuildRequires:	automake >= 1:1.11
 BuildRequires:	curl-devel >= 7.12.0
 BuildRequires:	gtk-doc-automake >= 1.3
 BuildRequires:	libtool
-BuildRequires:	yajl-devel
 # XML library can be libxml or expat; grddl parser requires libxml2+libxslt anyway
-BuildRequires:	libxml2-devel >= 2.6.8
+BuildRequires:	libxml2-devel >= 1:2.6.8
 BuildRequires:	libxslt-devel >= 1.0.18
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.98
+BuildRequires:	yajl-devel
 Requires:	curl-libs >= 7.12.0
+Requires:	libxml2 >= 1:2.6.8
+Requires:	libxslt >= 1.0.18
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -43,7 +45,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libraptor2
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	curl-devel >= 7.12.0
-Requires:	libxml2-devel >= 2.6.8
+Requires:	libxml2-devel >= 1:2.6.8
 Requires:	libxslt-devel >= 1.0.18
 Requires:	yajl-devel
 
@@ -70,7 +72,6 @@ Summary:	libraptor2 API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki libraptor2
 Group:		Documentation
 Requires:	gtk-doc-common
-Obsoletes:	libraptor-apidocs < 2.0.0
 
 %description apidocs
 libraptor2 API documentation.
@@ -140,7 +141,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files apidocs
 %defattr(644,root,root,755)
-%{_gtkdocdir}/raptor
+%{_gtkdocdir}/raptor2
 
 %files rapper
 %defattr(644,root,root,755)
