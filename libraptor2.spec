@@ -4,7 +4,7 @@ Name:		libraptor2
 # the real name is raptor2, but it follows libraptor (named as such because raptor was already occupied)
 %define	rname	raptor2
 Version:	2.0.14
-Release:	2
+Release:	3
 License:	LGPL v2.1+ or GPL v2+ or Apache v2.0+
 Group:		Libraries
 Source0:	http://download.librdf.org/source/%{rname}-%{version}.tar.gz
@@ -71,6 +71,9 @@ Summary:	libraptor2 API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki libraptor2
 Group:		Documentation
 Requires:	gtk-doc-common
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 libraptor2 API documentation.
