@@ -4,7 +4,7 @@ Name:		libraptor2
 # the real name is raptor2, but it follows libraptor (named as such because raptor was already occupied)
 %define	rname	raptor2
 Version:	2.0.15
-Release:	1
+Release:	2
 License:	LGPL v2.1+ or GPL v2+ or Apache v2.0+
 Group:		Libraries
 Source0:	http://download.librdf.org/source/%{rname}-%{version}.tar.gz
@@ -19,7 +19,7 @@ BuildRequires:	libtool >= 2:2
 BuildRequires:	libxml2-devel >= 1:2.6.8
 BuildRequires:	libxslt-devel >= 1.0.18
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.98
+BuildRequires:	rpmbuild(macros) >= 1.752
 BuildRequires:	yajl-devel
 Requires:	curl-libs >= 7.12.0
 Requires:	libxml2 >= 1:2.6.8
@@ -71,9 +71,7 @@ Summary:	libraptor2 API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki libraptor2
 Group:		Documentation
 Requires:	gtk-doc-common
-%if "%{_rpmversion}" >= "5"
-BuildArch:	noarch
-%endif
+%{?noarchpackage}
 
 %description apidocs
 libraptor2 API documentation.
@@ -117,6 +115,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libraptor2.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -132,7 +133,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libraptor2.so
-%{_libdir}/libraptor2.la
 %{_includedir}/raptor2
 %{_pkgconfigdir}/raptor2.pc
 %{_mandir}/man3/libraptor2.3*
