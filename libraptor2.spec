@@ -71,7 +71,7 @@ Summary:	libraptor2 API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki libraptor2
 Group:		Documentation
 Requires:	gtk-doc-common
-%{?noarchpackage}
+BuildArch:	noarch
 
 %description apidocs
 libraptor2 API documentation.
