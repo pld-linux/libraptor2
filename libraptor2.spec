@@ -3,13 +3,14 @@ Summary(pl.UTF-8):	Raptor - zestaw narzędzi do analizy RDF
 Name:		libraptor2
 # the real name is raptor2, but it follows libraptor (named as such because raptor was already occupied)
 %define	rname	raptor2
-Version:	2.0.15
-Release:	2
+Version:	2.0.16
+Release:	1
 License:	LGPL v2.1+ or GPL v2+ or Apache v2.0+
 Group:		Libraries
-Source0:	http://download.librdf.org/source/%{rname}-%{version}.tar.gz
-# Source0-md5:	a39f6c07ddb20d7dd2ff1f95fa21e2cd
-URL:		http://librdf.org/raptor/
+Source0:	https://download.librdf.org/source/%{rname}-%{version}.tar.gz
+# Source0-md5:	0a71f13b6eaa0a04bf411083d89d7bc2
+Patch0:		%{rname}-libxml2.patch
+URL:		https://librdf.org/raptor/
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake >= 1:1.11
 # WWW library can be one of: curl(default),xml,libfetch,none
@@ -85,7 +86,7 @@ Summary(pl.UTF-8):	Testowy program parsera Raptor RDF
 Group:		Applications
 Requires:	%{name} = %{version}-%{release}
 Obsoletes:	libraptor-rapper < 2.0.0
-Obsoletes:	redland-rapper
+Obsoletes:	redland-rapper < 0.9.18
 
 %description rapper
 Raptor RDF parser test program.
@@ -95,6 +96,7 @@ Testowy program parsera Raptor RDF.
 
 %prep
 %setup -q -n %{rname}-%{version}
+%patch0 -p1
 
 %build
 %{__libtoolize}
