@@ -4,7 +4,7 @@ Name:		libraptor2
 # the real name is raptor2, but it follows libraptor (named as such because raptor was already occupied)
 %define	rname	raptor2
 Version:	2.0.16
-Release:	1
+Release:	2
 License:	LGPL v2.1+ or GPL v2+ or Apache v2.0+
 Group:		Libraries
 Source0:	https://download.librdf.org/source/%{rname}-%{version}.tar.gz
