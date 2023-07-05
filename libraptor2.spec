@@ -16,6 +16,7 @@ BuildRequires:	automake >= 1:1.11
 # WWW library can be one of: curl(default),xml,libfetch,none
 BuildRequires:	curl-devel >= 7.12.0
 BuildRequires:	gtk-doc-automake >= 1.3
+BuildRequires:	libicu-devel
 BuildRequires:	libtool >= 2:2
 BuildRequires:	libxml2-devel >= 1:2.6.8
 BuildRequires:	libxslt-devel >= 1.0.18
@@ -45,6 +46,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libraptor2
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	curl-devel >= 7.12.0
+Requires:	libicu-devel
 Requires:	libxml2-devel >= 1:2.6.8
 Requires:	libxslt-devel >= 1.0.18
 Requires:	yajl-devel
