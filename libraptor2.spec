@@ -4,12 +4,15 @@ Name:		libraptor2
 # the real name is raptor2, but it follows libraptor (named as such because raptor was already occupied)
 %define	rname	raptor2
 Version:	2.0.16
-Release:	5
+Release:	6
 License:	LGPL v2.1+ or GPL v2+ or Apache v2.0+
 Group:		Libraries
 Source0:	https://download.librdf.org/source/%{rname}-%{version}.tar.gz
 # Source0-md5:	0a71f13b6eaa0a04bf411083d89d7bc2
 Patch0:		%{rname}-libxml2.patch
+Patch1:		%{rname}-CVE-2024-57822.patch
+Patch2:		%{rname}-CVE-2024-57823.patch
+Patch3:		%{rname}-CVE-2025-71436.patch
 URL:		https://librdf.org/raptor/
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake >= 1:1.11
@@ -99,6 +102,9 @@ Testowy program parsera Raptor RDF.
 %prep
 %setup -q -n %{rname}-%{version}
 %patch -P0 -p1
+%patch -P1 -p1
+%patch -P2 -p1
+%patch -P3 -p1
 
 %build
 %{__libtoolize}
